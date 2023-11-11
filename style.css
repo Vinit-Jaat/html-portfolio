@@ -1,0 +1,292 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+    
+}
+
+body{
+    height: 100vh;
+    background-color: #212121;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+a:hover{
+    color: #00ADB5;
+}
+
+/* HEADER */
+header{
+    border-style: dotted;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+
+}
+
+.navbar .toggle_btn{
+    columns: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action_btn{
+     background-color: #00ADB5;
+     color: #fff;
+     padding: 0.5rem 1rem;
+     border: none;
+     outline: none;
+     border-radius: 20px;
+     font-size: 0.8rem;
+     font-weight: bold;
+     cursor: pointer;
+     transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+    scale: 1.05;
+    color: #fff;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+/* DROPDOWN MENU*/
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(1000px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open{
+    height: 260px;
+
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* HERO */
+
+section#hero{
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+#hero h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* RESPONSIVE DESIGN FOR NAV-BAR*/
+
+@media(max-width: 992px){
+    .navbar .links,
+    .navbar .action_btn{ 
+        display: none;
+    }
+    .navbar .toggle_btn{
+        display: block ;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}
+
+/* CONTENT */
+.header_text{
+    border-style: dashed;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 400px;
+    margin-top: 400px;
+}
+
+.header_text h1{
+    color: white;
+    border-style: dotted;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.header_text p{
+    color: white;
+    border-style: dotted;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header_text h1 span{
+    color: white;
+}
+
+/* ABOUT */
+
+middle{
+    position: relative;
+}
+.about{
+    position: relative;
+    border-style: dotted;
+    color: white;
+}
+
+.container{
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-style: dotted;
+    padding: 0 2rem;
+}
+
+.row1{
+    border-style: dotted;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.row2{
+    border-style: dotted;
+    overflow: hidden;
+}
+
+@media screen and (mix-width: 768px) {
+    .container{
+        flex-direction: row-reverse;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .container{
+        flex-direction: column;
+    }
+    .container{
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+.row2 p{
+    border-style: dotted;
+}
+
+.column{
+    border-style: dotted;
+    padding: 0.3rem;
+}
+
+
+.tab-titles{
+    display: flex;
+    margin: 20px 0px 40px;
+}
+
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: white;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+
+.tab-links.active-link::after{
+    width: 50%;
+}
+
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+
+}
+
+.tab-contents ul li span{
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.tab-contents{
+    display: none;
+}
+
+.tab-contents.active-tab{
+    display: block;
+}
