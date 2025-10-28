@@ -139,13 +139,12 @@
 		/* Hero Section */
 		.hero {
 			padding: 160px 0 100px;
-			/*background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);*/
+			background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 			color: var(--text-primary);
 			text-align: center;
-			/*clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);*/
+			clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 			position: relative;
-			overflow: visible;
-			z-index: 10;
+			overflow: hidden;
 		}
 
 		.hero-content {
@@ -849,24 +848,6 @@
 				width: 200px;
 			}
 
-			/* MODIFICATION: Make dropdown-container block on mobile for better stacking */
-			.dropdown-container {
-				display: block;
-				width: 260px;
-				/* Width of the button */
-				margin: 10px auto;
-			}
-
-			#downloadExeBtn {
-				width: 100%;
-				/* Make button fill container */
-			}
-
-			.dropdown-menu {
-				width: 100%;
-				/* Make menu fill container */
-			}
-
 			.skills-grid {
 				grid-template-columns: repeat(2, 1fr);
 			}
@@ -875,89 +856,11 @@
 				flex-direction: column;
 			}
 		}
-
-		/* --- NEW CSS FOR DROPDOWN --- */
-		/* Dropdown Menu for EXE Download */
-		.dropdown-container {
-			position: relative;
-			display: inline-block;
-			/* Aligns it with other buttons */
-			margin: 5px;
-		}
-
-		/* Style the new EXE button */
-		#downloadExeBtn {
-			cursor: pointer;
-		}
-
-		#downloadExeBtn i {
-			margin-left: 8px;
-			font-size: 0.9em;
-			transition: transform 0.3s ease;
-		}
-
-		/* Rotate arrow when menu is active */
-		#downloadExeBtn.active i {
-			transform: rotate(180deg);
-		}
-
-		.dropdown-menu {
-			display: none;
-			/* Hidden by default */
-			position: absolute;
-			top: 155%;
-			/* Position right below the button */
-			left: 50%;
-			background-color: var(--card-bg);
-			border: 1px solid var(--border-color);
-			border-radius: 8px;
-			box-shadow: var(--shadow);
-			z-index: 1001;
-			min-width: 220px;
-			/* Same width as the button */
-			padding: 10px 0;
-
-			/* Animation */
-			opacity: 0;
-			visibility: hidden;
-			transform: translateY(10px);
-			transition: all 0.3s ease;
-		}
-
-		/* Show the menu */
-		.dropdown-menu.active {
-			display: block;
-			opacity: 1;
-			visibility: visible;
-			transform: translateY(0);
-		}
-
-		.dropdown-link {
-			display: block;
-			padding: 12px 20px;
-			text-decoration: none;
-			color: var(--text-primary);
-			font-size: 0.95rem;
-			font-family: 'Poppins', sans-serif;
-			transition: background-color 0.2s ease, color 0.2s ease;
-		}
-
-		.dropdown-link i {
-			margin-right: 10px;
-			color: var(--accent-color);
-			width: 20px;
-		}
-
-		.dropdown-link:hover {
-			background-color: var(--bg-secondary);
-			color: var(--accent-color);
-		}
-
-		/* --- END OF NEW CSS --- */
 	</style>
 </head>
 
 <body class="light-theme">
+	<!-- Header & Navigation -->
 	<header>
 		<div class="container">
 			<nav>
@@ -967,6 +870,7 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="#services">Services</a></li>
 					<li><a href="#projects">Projects</a></li>
+					<!--<li><a href="#testimonials">Testimonials</a></li>-->
 					<li><a href="#contact">Contact</a></li>
 					<li>
 						<button class="theme-toggle" id="themeToggle">
@@ -981,6 +885,7 @@
 		</div>
 	</header>
 
+	<!-- Hero Section -->
 	<section id="home" class="hero">
 		<div class="container">
 			<div class="hero-content">
@@ -988,36 +893,13 @@
 				<p>A passionate full-stack developer with expertise in web backend, DevOps, and multiple
 					programming languages.</p>
 				<a href="#projects" class="btn" id="viewWorkBtn">View My Work</a>
-
-				<a href="Vinit-CV.pdf" class="btn btn-outline" id="downloadCV" download>Download CV</a>
-
-				<div class="dropdown-container">
-					<button class="btn btn-outline" id="downloadExeBtn">
-						Download Portfolio EXE <i class="fas fa-chevron-down"></i>
-					</button>
-					<div class="dropdown-menu" id="exeDropdown">
-						<span style="font-size: 12px; color: #666; margin-left: 8px;">
-							(use BACKSPACE to navigate
-						</span><br>
-						<span style="font-size: 12px; color: #666; margin-left: 8px;">
-							BACK in app.)
-						</span>
-						<a href="Portfolio-Windows.exe" class="dropdown-link" download>
-							<i class="fab fa-windows"></i> Windows
-						</a>
-						<a href="Portfolio-Linux" class="dropdown-link" download>
-							<i class="fab fa-linux"></i> Linux
-						</a>
-						<span style="font-size: 12px; color: #666; margin-left: 8px;">
-							(Use chmod +x before running.)
-						</span>
-					</div>
-				</div>
-
+				<a href="#" class="btn btn-outline" id="downloadCV">Download CV</a>
+				<a href="#" class="btn btn-outline" id="downloadExe">Download Portfolio EXE</a>
 			</div>
 		</div>
 	</section>
 
+	<!-- About Section -->
 	<section id="about" class="about">
 		<div class="container">
 			<div class="section-title">
@@ -1034,6 +916,7 @@
 					<p>When I'm not coding, you can find me hiking, reading, or exploring new coffee
 						shops around the city.</p>
 
+					<!-- Updated: Skills Grid -->
 					<div class="skills-grid">
 						<div class="skill-item">
 							<div class="skill-icon"><i class="fab fa-html5"></i></div>
@@ -1045,16 +928,27 @@
 							<div class="skill-name">JavaScript</div>
 							<div class="skill-level">Advanced</div>
 						</div>
+						<!--<div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-react"></i></div>
+                            <div class="skill-name">React</div>
+                            <div class="skill-level">Advanced</div>
+                        </div>-->
 						<div class="skill-item">
 							<div class="skill-icon"><i class="fas fa-mobile"></i></div>
 							<div class="skill-name">Responsive Design</div>
 							<div class="skill-level">Expert</div>
 						</div>
+						<!--<div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+                            <div class="skill-name">UI/UX Design</div>
+                            <div class="skill-level">Advanced</div>
+                        </div>-->
 						<div class="skill-item">
 							<div class="skill-icon"><i class="fab fa-node"></i></div>
 							<div class="skill-name">Node.js</div>
 							<div class="skill-level">Intermediate</div>
 						</div>
+						<!-- Added: New Skills -->
 						<div class="skill-item">
 							<div class="skill-icon"><i class="fab fa-python"></i></div>
 							<div class="skill-name">Python</div>
@@ -1106,6 +1000,7 @@
 		</div>
 	</section>
 
+	<!-- Services Section -->
 	<section id="services" class="services">
 		<div class="container">
 			<div class="section-title">
@@ -1134,6 +1029,7 @@
 		</div>
 	</section>
 
+	<!-- Projects Section -->
 	<section id="projects" class="projects">
 		<div class="container">
 			<div class="section-title">
@@ -1242,6 +1138,52 @@
 		</div>
 	</section>
 
+	<!-- NEW: Testimonials Section -->
+	<!-- <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Vinit delivered an exceptional website for our company. His attention to detail and creative solutions exceeded our expectations.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>John Doe</h4>
+                            <p>CEO, Tech Solutions Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Working with Vinit was a pleasure. He transformed our vague ideas into a beautiful, functional web application.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Miller</h4>
+                            <p>Founder, Startup Ventures</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Vinit's technical expertise and design sensibility resulted in a website that perfectly represents our brand.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RJ</div>
+                        <div class="author-info">
+                            <h4>Robert Johnson</h4>
+                            <p>Marketing Director, Brand Co.</p>
+                        </div>
+                    </div>
+    </section>
+-->
+
+	<!-- Contact Section -->
 	<section id="contact" class="contact">
 		<div class="container">
 			<div class="section-title">
@@ -1250,6 +1192,8 @@
 			<div class="contact-content">
 				<div class="contact-info">
 					<h3>Get in Touch</h3>
+					<!--<p><i class="fas fa-map-marker-alt"></i> Chandigarh, India</p>-->
+
 					<style>
 						.map-link {
 							text-decoration: none;
@@ -1290,6 +1234,9 @@
 							color: var(--accent-color);
 						}
 					</style>
+					<!--<a href="https://wa.me/number" target="_blank" class="phone-link">-->
+
+					<!--<a href="https://wa.me/tel:+919992903554" target="_blank" class="phone-link">-->
 					<a href="https://wa.me/919992903554" target="_blank" class="phone-link">
 						<p><i class="fas fa-phone"></i> 91 99929-03554</p>
 					</a>
@@ -1323,22 +1270,28 @@
 		</div>
 	</section>
 
+	<!-- Footer -->
 	<footer>
 		<div class="container">
 			<div class="social-links">
+				<!-- <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a> -->
+				<!--<a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>-->
 				<a href="https://www.linkedin.com/in/vinit-72007522b/" target="_blank"
 					class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
 				<a href="https://github.com/Vinit-Jaat" target="_blank" class="social-link github"><i
 						class="fab fa-github"></i></a>
+				<!--<a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>-->
 			</div>
-			<p>© 2025 Vinit. All Rights Reserved.</p>
+			<p>&copy; 2025 Vinit. All Rights Reserved.</p>
 		</div>
 	</footer>
 
+	<!-- NEW: Back to Top Button -->
 	<a href="#" class="back-to-top" id="backToTop">
 		<i class="fas fa-arrow-up"></i>
 	</a>
 
+	<!-- NEW: Custom Alert Modal -->
 	<div class="custom-alert" id="customAlert">
 		<div class="alert-content">
 			<h3 id="alertTitle">Success</h3>
@@ -1392,46 +1345,19 @@
 			});
 		});
 
-
-		// --- JAVASCRIPT UPDATES START ---
-
-		// CV Download - Just track click. HTML 'download' attribute handles the rest.
-		document.getElementById('downloadCV').addEventListener('click', function () {
+		// CV Download
+		document.getElementById('downloadCV').addEventListener('click', function (e) {
+			e.preventDefault();
 			trackButtonClick('Download CV');
+			showAlert('Download CV', 'Working on it.');
 		});
 
-		// EXE Download Dropdown Toggle
-		const exeBtn = document.getElementById('downloadExeBtn');
-		const exeDropdown = document.getElementById('exeDropdown');
-
-		exeBtn.addEventListener('click', function (e) {
-			e.stopPropagation(); // Prevents click from closing menu immediately
-			trackButtonClick('Download EXE Toggle');
-
-			// Toggle the 'active' class on both button and menu
-			exeBtn.classList.toggle('active');
-			exeDropdown.classList.toggle('active');
+		// EXE Download
+		document.getElementById('downloadExe').addEventListener('click', function (e) {
+			e.preventDefault();
+			trackButtonClick('Download EXE');
+			showAlert('Download EXE', 'Working on it.');
 		});
-
-		// Close dropdown when clicking outside
-		window.addEventListener('click', function () {
-			if (exeDropdown.classList.contains('active')) {
-				exeDropdown.classList.remove('active');
-				exeBtn.classList.remove('active');
-			}
-		});
-
-		// Optional: Add tracking to the new dropdown links
-		document.querySelectorAll('.dropdown-link').forEach(link => {
-			link.addEventListener('click', function () {
-				// Get text content and remove icon text if any
-				let linkText = this.textContent.trim();
-				trackButtonClick('Download ' + linkText);
-			});
-		});
-
-		// --- JAVASCRIPT UPDATES END ---
-
 
 		// View My Work Button
 		document.getElementById('viewWorkBtn').addEventListener('click', function (e) {
@@ -1505,9 +1431,6 @@
 			// Track button clicks for all buttons with tracking class
 			document.querySelectorAll('.btn, .project-link, .social-link').forEach(button => {
 				button.addEventListener('click', function () {
-					// Avoid tracking the dropdown toggle button here as it's handled separately
-					if (this.id === 'downloadExeBtn') return;
-
 					let buttonText = this.textContent.trim();
 					if (!buttonText) {
 						// For social icons without text, use the class name
